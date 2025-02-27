@@ -12,18 +12,18 @@ def horas_evento_semanal(link_agenda, nome_evento):
     # Acessar a Google Agenda
     driver.get(link_agenda)
 
-    time.sleep(2) 
+    time.sleep(1) 
 
     print("Google Agenda Acessado!")
 
     # Filtrar para Semana
     driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[1]/header/div/div[2]/nav/div[1]/div[1]/div/button/span[5]').click()
 
-    time.sleep(2)
+    time.sleep(1)
 
     driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[1]/header/div/div[2]/nav/div[1]/div[2]/div/div/ul/li[2]').click()
 
-    time.sleep(2)
+    time.sleep(10)
 
     print("Modo Semana ativado!")
 
@@ -31,7 +31,7 @@ def horas_evento_semanal(link_agenda, nome_evento):
     eventos = driver.find_elements(By.CLASS_NAME, 'Jcb6qd')
     print("Eventos selecionados!")
 
-    time.sleep(2)
+    time.sleep(1)
 
     total = timedelta()
 
@@ -44,7 +44,7 @@ def horas_evento_semanal(link_agenda, nome_evento):
         if nome_evento in nome.text:
             nome.click()
 
-            time.sleep(2)
+            time.sleep(1)
 
             # Selecionar as informações do evento
             texto = driver.find_element(By.CLASS_NAME, 'LTczme')
@@ -54,7 +54,7 @@ def horas_evento_semanal(link_agenda, nome_evento):
 
             print(nome.text, horario.text)
 
-            time.sleep(2)
+            time.sleep(1)
 
             # Separar os horários
             inicio, fim = horario.text.split(" até ")

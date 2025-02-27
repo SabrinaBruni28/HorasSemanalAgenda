@@ -15,4 +15,8 @@ teste:
 	@echo "link_agenda: $(link_agenda)"
 	@echo "nome_evento: $(nome_evento)"
 
-	@PYTHONDONTWRITEBYTECODE=1 python3 google_agenda.py "$(link_agenda)" "$(nome_evento)"
+	. .venv/bin/activate && @PYTHONDONTWRITEBYTECODE=1 python3 google_agenda.py "$(link_agenda)" "$(nome_evento)" && desactivate
+	
+	
+sabrina:
+	. .venv/bin/activate && python3 sabrina.py && deactivate
