@@ -57,7 +57,7 @@ def horas_evento_semanal(link_agenda, nome_evento):
             time.sleep(1)
 
             # Separar os horários
-            inicio, fim = horario.text.split(" até ")
+            inicio, fim = horario.text.split(" – ")
 
             # Converter para objetos datetime
             formato = "%H:%M"
@@ -67,6 +67,13 @@ def horas_evento_semanal(link_agenda, nome_evento):
             # Calcular a diferença
             total += (hora_fim - hora_inicio)
 
+            time.sleep(2)
+
+            # Fecha as informações
+            botao_x = driver.find_element(By.XPATH, "//*//button[@aria-label='Fechar']")
+            botao_x.click()
+
+            time.sleep(2)
     # Exibir o tempo total em horas e minutos
     horas, minutos = divmod(total.total_seconds() // 60, 60)
 
