@@ -20,3 +20,6 @@ teste:
 	
 sabrina:
 	. .venv/bin/activate && python3 sabrina.py && deactivate
+
+faltando:
+	. .venv/bin/activate && python3 sabrina_faltando.py && deactivate
